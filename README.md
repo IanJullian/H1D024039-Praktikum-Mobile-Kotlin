@@ -1,8 +1,8 @@
 # Laporan Praktikum Pemrograman Mobile
 
-**Nama**        : Muhammad Zaki Dzulfikar  
-**NIM**         : H1D023065  
-**Shift**       : Awal A / Akhir B  
+**Nama**        : Ian Jullian Sutrisno  
+**NIM**         : H1D024039
+**Shift**       : Awal I / Akhir C
 **Praktikum**   : Pemrograman Mobile
 
 ---
@@ -26,3 +26,11 @@ Pada pertemuan pertama, praktikum memberikan pemahaman dasar mengenai konsep pen
 Pertemuan kedua menekankan pada implementasi fitur interaktif dalam aplikasi mobile. Mahasiswa belajar bagaimana menghubungkan antarmuka dengan logika program sehingga aplikasi dapat merespons input pengguna secara dinamis dan memberikan pengalaman yang lebih baik.
 
 ---
+
+## 📝 Tugas Pertemuan 3
+**Tanggal**: Selasa, 15 September 2026
+
+![tugas-3.png](app/src/docs/tugas-3.png)
+
+**Kesimpulan Praktikum:**  
+Pertemuan ketiga membuka wawasan tentang pengembangan aplikasi mobile yang lebih kompleks. Mahasiswa belajar bagaimana mengintegrasikan berbagai komponen dan fitur untuk menciptakan aplikasi yang lebih lengkap dan bermanfaat.
