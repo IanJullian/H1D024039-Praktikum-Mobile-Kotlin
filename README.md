@@ -1,8 +1,8 @@
 # Laporan Praktikum Pemrograman Mobile
 
 **Nama**        : Ian Jullian Sutrisno  
-**NIM**         : H1D024039
-**Shift**       : Awal I / Akhir C
+**NIM**         : H1D024039  
+**Shift**       : Awal I / Akhir C  
 **Praktikum**   : Pemrograman Mobile
 
 ---
