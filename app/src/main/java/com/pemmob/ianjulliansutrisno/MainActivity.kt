@@ -15,7 +15,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.Scaffold
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -25,6 +26,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.pemmob.ianjulliansutrisno.ui.screen.BasicInfoScreen
+import com.pemmob.ianjulliansutrisno.ui.screen.HubungiKamiScreen
 import com.pemmob.ianjulliansutrisno.ui.theme.JualanTheme
 
 class MainActivity : ComponentActivity() {
@@ -33,8 +39,21 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             JualanTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    LayoutTentangJualan(modifier = Modifier.padding(innerPadding))
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    val navController = rememberNavController()
+                    NavHost(navController = navController, startDestination = "basic_info") {
+                        composable(route = "basic_info") {
+                            BasicInfoScreen(
+                                onNavigateToContact = { navController.navigate(route = "form_screen") }
+                            )
+                        }
+                        composable(route = "form_screen") {
+                            HubungiKamiScreen(navController = navController)
+                        }
+                    }
                 }
             }
         }
