@@ -40,10 +40,7 @@ Pertemuan ketiga membuka wawasan tentang pengembangan aplikasi mobile yang lebih
 ## 📝 Tugas Pertemuan 4
 **Tanggal**: Selasa, 22 September 2026
 
-![tugas-4.png](app/src/docs/tugas-4.png)
-![tugas-4-1.png](app/src/docs/tugas-4-1.png)
-![tugas-4-2.png](app/src/docs/tugas-4-2.png)
-![tugas-4-3.png](app/src/docs/tugas-4-3.png)
+<img src="app/src/docs/tugas-4.png" width="250" /> <img src="app/src/docs/tugas-4-1.png" width="250" /> <img src="app/src/docs/tugas-4-2.png" width="250" /> <img src="app/src/docs/tugas-4-3.png" width="250" />
 
 **Kesimpulan Praktikum:**  
 Pertemuan keempat memberikan pemahaman mendalam mengenai Recomposition dan UI Lifecycle dalam Jetpack Compose. Mahasiswa belajar menerapkan pengolahan state menggunakan `mutableStateOf` dan `rememberSaveable`, pola arsitektur State Hoisting yang memisahkan Stateful dan Stateless Composable, penanganan proses asinkron terikat siklus hidup UI menggunakan `LaunchedEffect`, serta implementasi navigasi antar layar dengan pengiriman argumen dinamis.
