@@ -4,7 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.pemmob.ianjulliansutrisno.ui.screen.DaftarProductScreen // Sesuaikan jika nama fungsinya DaftarProdukScreen
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.pemmob.ianjulliansutrisno.ui.screen.DaftarProductScreen
+import com.pemmob.ianjulliansutrisno.ui.screen.DetailProductScreen
+import com.pemmob.ianjulliansutrisno.ui.screen.HubungiKamiScreen
 import com.pemmob.ianjulliansutrisno.ui.theme.JualanTheme
 
 class HomeActivity : ComponentActivity() {
@@ -13,7 +20,27 @@ class HomeActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             JualanTheme {
-                DaftarProductScreen()
+                val navController = rememberNavController()
+                NavHost(navController = navController, startDestination = "daftar_produk") {
+                    composable(route = "daftar_produk") {
+                        DaftarProductScreen(navController = navController)
+                    }
+                    composable(
+                        route = "detail/{productId}",
+                        arguments = listOf(navArgument(name = "productId") {
+                            type = NavType.IntType
+                        })
+                    ) { backStackEntry ->
+                        val productId = backStackEntry.arguments?.getInt("productId") ?: 0
+                        DetailProductScreen(
+                            productId = productId,
+                            navController = navController
+                        )
+                    }
+                    composable(route = "hubungi_kami") {
+                        HubungiKamiScreen(navController = navController)
+                    }
+                }
             }
         }
     }
