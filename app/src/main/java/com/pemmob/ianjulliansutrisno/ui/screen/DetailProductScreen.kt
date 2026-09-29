@@ -42,7 +42,7 @@ import com.pemmob.ianjulliansutrisno.R
 import com.pemmob.ianjulliansutrisno.data.model.Product
 import com.pemmob.ianjulliansutrisno.ui.viewmodel.ProductUiState
 import com.pemmob.ianjulliansutrisno.ui.viewmodel.ProductViewModel
-import com.pemmob.ianjulliansutrisno.util.JualanConstants.BASE_URL
+import com.pemmob.ianjulliansutrisno.util.getImageModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -99,6 +99,8 @@ fun StatelessDetailProduct(
     onBackClick: () -> Unit,
     onAddToCartClick: () -> Unit
 ) {
+    val context = LocalContext.current
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -117,10 +119,8 @@ fun StatelessDetailProduct(
                 .padding(paddingValues)
                 .verticalScroll(state = rememberScrollState())
         ) {
-            val imageModel: Any = if (product.img == "dummy_product") {
-                R.drawable.dummy_product
-            } else {
-                "${BASE_URL}img/${product.img}"
+            val imageModel: Any = remember(product.img, product.name) {
+                product.getImageModel(context)
             }
             Box(
                 modifier = Modifier.fillMaxWidth()
@@ -128,6 +128,8 @@ fun StatelessDetailProduct(
                 AsyncImage(
                     model = imageModel,
                     contentDescription = product.name,
+                    placeholder = painterResource(id = R.drawable.dummy_product),
+                    error = painterResource(id = R.drawable.dummy_product),
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(280.dp)

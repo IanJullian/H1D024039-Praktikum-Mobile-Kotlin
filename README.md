@@ -44,3 +44,13 @@ Pertemuan ketiga membuka wawasan tentang pengembangan aplikasi mobile yang lebih
 
 **Kesimpulan Praktikum:**  
 Pertemuan keempat memberikan pemahaman mendalam mengenai Recomposition dan UI Lifecycle dalam Jetpack Compose. Mahasiswa belajar menerapkan pengolahan state menggunakan `mutableStateOf` dan `rememberSaveable`, pola arsitektur State Hoisting yang memisahkan Stateful dan Stateless Composable, penanganan proses asinkron terikat siklus hidup UI menggunakan `LaunchedEffect`, serta implementasi navigasi antar layar dengan pengiriman argumen dinamis.
+
+---
+
+## 📝 Tugas Pertemuan 5
+**Tanggal**: Selasa, 29 September 2026
+
+<img src="app/src/docs/tugas-5.png" width="250" /> <img src="app/src/docs/tugas-5-1.png" width="250" />
+
+**Kesimpulan Praktikum:**  
+Pertemuan kelima memberikan pemahaman mendalam mengenai integrasi jaringan (Networking) dan pola arsitektur MVVM dalam aplikasi Android. Mahasiswa belajar mengimplementasikan library Retrofit dan Gson Converter untuk mengambil data dari REST API, mengelola state jaringan menggunakan Sealed Interface `ProductUiState` (`Loading`, `Success`, `Error`), serta memanfaatkan Coil (`AsyncImage`) untuk memuat gambar produk dari server secara *asynchronous*.

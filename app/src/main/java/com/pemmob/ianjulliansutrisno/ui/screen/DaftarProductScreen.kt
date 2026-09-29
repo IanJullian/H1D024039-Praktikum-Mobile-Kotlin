@@ -37,7 +37,7 @@ import com.pemmob.ianjulliansutrisno.data.model.Category
 import com.pemmob.ianjulliansutrisno.data.model.Product
 import com.pemmob.ianjulliansutrisno.ui.viewmodel.ProductUiState
 import com.pemmob.ianjulliansutrisno.ui.viewmodel.ProductViewModel
-import com.pemmob.ianjulliansutrisno.util.JualanConstants.BASE_URL
+import com.pemmob.ianjulliansutrisno.util.getImageModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -82,7 +82,9 @@ fun DaftarProductScreen(
             StatelessDaftarProduct(
                 categories = state.categories,
                 selectedCategoryId = selectedCategoryId,
-                onCategorySelected = { selectedCategoryId = it },
+                onCategorySelected = { categoryId ->
+                    selectedCategoryId = if (selectedCategoryId == categoryId) null else categoryId
+                },
                 searchQuery = searchQuery,
                 onSearchQueryChange = { searchQuery = it },
                 isLoading = false,
@@ -96,11 +98,6 @@ fun DaftarProductScreen(
             )
         }
     }
-}
-
-@Composable
-fun DaftarProdukScreen(navController: NavController? = null) {
-    DaftarProductScreen(navController = navController)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -247,10 +244,9 @@ fun StatelessDaftarProduct(
 
 @Composable
 fun ProductItemCard(product: Product, onClick: () -> Unit) {
-    val imageModel: Any = if (product.img == "dummy_product") {
-        R.drawable.dummy_product
-    } else {
-        "${BASE_URL}img/${product.img}"
+    val context = LocalContext.current
+    val imageModel: Any = remember(product.img, product.name) {
+        product.getImageModel(context)
     }
 
     Card(
@@ -268,6 +264,8 @@ fun ProductItemCard(product: Product, onClick: () -> Unit) {
                 AsyncImage(
                     model = imageModel,
                     contentDescription = product.name,
+                    placeholder = painterResource(id = R.drawable.dummy_product),
+                    error = painterResource(id = R.drawable.dummy_product),
                     modifier = Modifier
                         .fillMaxWidth()
                         .aspectRatio(1f)
