@@ -42,6 +42,7 @@ import com.pemmob.ianjulliansutrisno.R
 import com.pemmob.ianjulliansutrisno.data.model.Product
 import com.pemmob.ianjulliansutrisno.ui.viewmodel.ProductUiState
 import com.pemmob.ianjulliansutrisno.ui.viewmodel.ProductViewModel
+import com.pemmob.ianjulliansutrisno.util.JualanConstants.BASE_URL
 import com.pemmob.ianjulliansutrisno.util.getImageModel
 
 @OptIn(ExperimentalMaterial3Api::class)
